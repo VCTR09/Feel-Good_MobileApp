@@ -33,25 +33,20 @@ class LoginScreen(Screen):
             self.manager.current = "login_screen_success"
         else:
             if self.ids.login_wrong.text == "":
-                self.ids.login_wrong.text = "Wrong username or password!"
-            elif self.ids.login_wrong.text == "Wrong username or password!":
-                self.ids.login_wrong.text = "Wrong Again!"
-            elif self.ids.login_wrong.text == "Wrong Again!":
+                self.ids.login_wrong.text = "Incorrect username or password!"
+            elif self.ids.login_wrong.text == "Incorrect username or password!":
+                self.ids.login_wrong.text = "Try Again!"
+            elif self.ids.login_wrong.text == "Try Again!":
                 self.ids.login_wrong.text = "You may need to reset your password!"
             else:
-                self.ids.login_wrong.text = "Wrong username or password!"
+                self.ids.login_wrong.text = "Incorrect username or password!"
 
     def go_to_forgot_password(self):
         self.manager.current = "forgot_password"
 
 
-class RootWidget(ScreenManager):
-    pass
-
-
 class SignUpScreen(Screen):
     def go_back_to_login(self):
-
         self.manager.transition.direction = "right"
         self.manager.current = "login_screen"
 
@@ -75,7 +70,6 @@ class SignUpScreen(Screen):
 
 class SignUpScreenSuccess(Screen):
     def go_back_to_login(self):
-
         self.manager.transition.direction = "right"
         self.manager.current = "login_screen"
 
@@ -116,12 +110,15 @@ class ForgotPassword(Screen):
             self.ids.password_status.text = "Try Again"
 
     def go_back_to_login(self):
-
         self.manager.transition.direction = "right"
         self.manager.current = "login_screen"
 
 
 class ImageButton(ButtonBehavior, HoverBehavior, Image):
+    pass
+
+
+class RootWidget(ScreenManager):
     pass
 
 
